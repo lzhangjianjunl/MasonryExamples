@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  重新设置布局的例子，这种方式适用于前后布局元素不一样了
+ */
 @interface MASExampleRemakeView : UIView
 
 @end

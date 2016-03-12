@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  比例的适配，真不错，要多看看
+ */
 @interface MASExampleAspectFitView : UIView
 
 @end

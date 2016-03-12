@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ *  主要是介绍快速设置内边距的方法：    make.edges.equalTo(lastView).insets(UIEdgeInsetsMake(5, 10, 15, 20));
+ */
 @interface MASExampleSidesView : UIView
 
 @end

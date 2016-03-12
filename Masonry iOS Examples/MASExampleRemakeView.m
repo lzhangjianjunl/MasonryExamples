@@ -44,10 +44,12 @@
 // this is Apple's recommended place for adding/updating constraints
 - (void)updateConstraints {
     
+    //约束的内容改变了，而不是约束的数值，看Update的例子
     [self.movingButton remakeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(100));
         make.height.equalTo(@(100));
         
+        //左上角和右下角不断变化
         if (self.topLeft) {
             make.left.equalTo(self.left).with.offset(10);
             make.top.equalTo(self.top).with.offset(10);

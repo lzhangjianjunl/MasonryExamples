@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ *  使用常量的例子
+ */
 @interface MASExampleConstantsView : UIView
 
 @end
