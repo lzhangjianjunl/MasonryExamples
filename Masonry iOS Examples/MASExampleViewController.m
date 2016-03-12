@@ -28,11 +28,12 @@
 }
 
 - (void)loadView {
+    //使用给予的view设置self.view
     self.view = self.viewClass.new;
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
-
+//用于直接在导航栏下面开始计算布局，而不是从状态栏顶端开始
 #ifdef __IPHONE_7_0
 - (UIRectEdge)edgesForExtendedLayout {
     return UIRectEdgeNone;
