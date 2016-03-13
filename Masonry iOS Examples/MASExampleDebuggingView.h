@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  学习了给view的约束别名，和给约束关系的约束别名，方便出现问题的时候调试
+ */
 @interface MASExampleDebuggingView : UIView
 
 @end

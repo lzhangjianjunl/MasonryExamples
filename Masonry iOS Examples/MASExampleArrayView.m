@@ -50,6 +50,7 @@ static CGFloat const kArrayExampleIncrement = 10.0;
         make.right.equalTo(self).with.offset(-10);
     }];
     
+    //把所有的view添加到数组中
     self.buttonViews = @[ raiseButton, lowerButton, centerButton ];
     
     return self;
@@ -73,11 +74,17 @@ static CGFloat const kArrayExampleIncrement = 10.0;
 }
 
 - (void)updateConstraints {
+    
+    //更新一组view的约束
     [self.buttonViews updateConstraints:^(MASConstraintMaker *make) {
+        //baseline的用法，在y的中心点偏移一定的数值
         make.baseline.equalTo(self.mas_centerY).with.offset(self.offset);
+        //用下面的就会崩溃，说是之前没有定义，因为这里是更新操作
+//        make.bottom.equalTo(self.mas_centerY).width.offset(self.offset);
     }];
     
     //according to apple super should be called at end of method
+    //注意这里最后要调用super
     [super updateConstraints];
 }
 

@@ -18,18 +18,22 @@
     for (int i = 0; i < 10; i++) {
         UIView *view = UIView.new;
         view.backgroundColor = [self randomColor];
+//        view.backgroundColor = [UIColor blackColor];
         view.layer.borderColor = UIColor.blackColor.CGColor;
         view.layer.borderWidth = 2;
+        
+        //iOS8新增的margin属性
         view.layoutMargins = UIEdgeInsetsMake(5, 10, 15, 20);
         [self addSubview:view];
-        
+     
+        //感觉没啥鸟用
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(lastView.topMargin);
             make.bottom.equalTo(lastView.bottomMargin);
             make.left.equalTo(lastView.leftMargin);
             make.right.equalTo(lastView.rightMargin);
         }];
-        
+    
         lastView = view;
     }
     

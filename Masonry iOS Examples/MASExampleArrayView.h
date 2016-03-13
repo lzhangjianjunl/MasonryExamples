@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  更新一组view的约束，并且练习了updateConstraints方法
+ */
 @interface MASExampleArrayView : UIView
 
 @end

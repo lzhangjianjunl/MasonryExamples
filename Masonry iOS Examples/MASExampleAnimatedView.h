@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  mas和动画相关的结合
+ */
 @interface MASExampleAnimatedView : UIView
 
 @end

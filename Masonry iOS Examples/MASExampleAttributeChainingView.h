@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  一次设置了多个间距,被多次的使用，可以一次设置多个属性
+ */
 @interface MASExampleAttributeChainingView : UIView
 
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  该例子解决了autolaytou下多行label的问题
+ */
 @interface MASExampleLabelView : UIView
 
 @end

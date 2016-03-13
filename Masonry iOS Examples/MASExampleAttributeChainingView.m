@@ -33,21 +33,27 @@
     [self addSubview:blueView];
 
     UIView *superview = self;
+    
+    //定一个间距的数据，后面可以被独立拿出来多次的使用
     UIEdgeInsets padding = UIEdgeInsetsMake(15, 10, 15, 10);
 
 
     [greenView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
         // chain attributes
+        // 一次设置多个间距
         make.top.and.left.equalTo(superview).insets(padding);
 
         // which is the equivalent of
 //        make.top.greaterThanOrEqualTo(superview).insets(padding);
 //        make.left.greaterThanOrEqualTo(superview).insets(padding);
 
+        //设置位置
         make.bottom.equalTo(blueView.mas_top).insets(padding);
         make.right.equalTo(redView.mas_left).insets(padding);
         make.width.equalTo(redView.mas_width);
 
+        //设置多个原素高度相等
         make.height.equalTo(@[redView, blueView]);
     }];
 

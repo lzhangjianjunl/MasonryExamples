@@ -47,10 +47,13 @@
 //    superview.mas_key = @"superview";
 
     //OR you can attach keys automagically like so:
+    // 如果不设置这些key，那么出现问题的时候，就只能看到uilabel之类的东东，很难调适
     MASAttachKeys(greenView, redView, blueView, superview);
 
     [blueView mas_makeConstraints:^(MASConstraintMaker *make) {
         //you can also attach debug keys to constaints
+        
+        //给约束设置一个名称，让其出现问题的时候方便定位
         make.edges.equalTo(@1).key(@"ConflictingConstraint"); //composite constraint keys will be indexed
         make.height.greaterThanOrEqualTo(@5000).key(@"ConstantConstraint");
 

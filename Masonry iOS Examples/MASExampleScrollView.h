@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  本文解决了，autolayout下ScrollView适配的问题，自动计算了contentSize
+ */
 @interface MASExampleScrollView : UIView
 
 @end

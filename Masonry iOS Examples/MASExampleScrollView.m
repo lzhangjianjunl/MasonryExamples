@@ -26,7 +26,8 @@
 - (id)init {
     self = [super init];
     if (!self) return nil;
-    
+
+    //添加一个scrollView，没有缝隙
     UIScrollView *scrollView = UIScrollView.new;
     self.scrollView = scrollView;
     scrollView.backgroundColor = [UIColor grayColor];
@@ -44,6 +45,9 @@
     UIView* contentView = UIView.new;
     [self.scrollView addSubview:contentView];
     
+    //回到那个博文一样的问题了
+    //1.为什么要添加一个contentView在scrollView上面
+    //2.为什么设置了边距，还要再设置高度呢？      为了计算contentSize
     [contentView makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.scrollView);
         make.width.equalTo(self.scrollView);
@@ -57,10 +61,13 @@
         view.backgroundColor = [self randomColor];
         [contentView addSubview:view];
         
+        //添加点击手势
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
         [view addGestureRecognizer:singleTap];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            //顶在上一个view的底部
+            //如果为nil，那么就是第一次，只要顶在最顶端就好，后面就是紧接着上一个view
             make.top.equalTo(lastView ? lastView.bottom : @0);
             make.left.equalTo(@0);
             make.width.equalTo(contentView.width);
@@ -74,8 +81,17 @@
     [contentView makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(lastView.bottom);
     }];
+    
+    //这样就自动计算了contentSize
 }
 
+
+
+/**
+ *   返回一个随机的颜色
+ *
+ *  @return
+ */
 - (UIColor *)randomColor {
     CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
     CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white

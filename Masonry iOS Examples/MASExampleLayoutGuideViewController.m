@@ -46,8 +46,11 @@
     bottomView.layer.borderWidth = 2;
     [self.view addSubview:bottomView];
 
+    
     [topView makeConstraints:^(MASConstraintMaker *make) {
+        //这里如果直接设置为0，可能会出现遮盖的状况,直接从状态栏开始布局了。。。
         make.top.equalTo(self.mas_topLayoutGuide);
+//        make.top.equalTo(0);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.height.equalTo(@40);
@@ -61,11 +64,14 @@
     }];
     
     [bottomView makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(0);
         make.bottom.equalTo(self.mas_bottomLayoutGuide);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.height.equalTo(@40);
     }];
+    
+    [self.view showPlaceHolderWithAllSubviews];
 }
 
 @end

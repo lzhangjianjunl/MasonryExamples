@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  适配iOS8的新增属性layoutMargins，不过貌似没啥鸟用
+ */
 @interface MASExampleMarginView : UIView
 
 @end
